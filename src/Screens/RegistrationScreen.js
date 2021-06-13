@@ -3,34 +3,27 @@ import {
   TextInput,
   StyleSheet,
   View,
+  Text,
   Button,
   Dimensions,
   Image,
 } from "react-native";
-import { Drawer } from "../Drawer";
-import LinearGradient from 'react-native-linear-gradient';
 import plant from "./../../assets/plant.png";
-
 
 const { width: WIDTH } = Dimensions.get("window");
 const { height: HEIGHT } = Dimensions.get("window");
 
-export const LoginScreen = ({ navigation }) => {
-
-    
+export const RegistrationScreen = ({ navigation }) => {
   const onPressHandler = () => {
-    navigation.navigate("Registration");
+    navigation.navigate("Login");
   };
-  const onPressHome = () => {
-    navigation.navigate("HomeScreen");
-  };
+
   return (
     <View style={styles.bacground}>
-       
       <View style={styles.logoContainer}>
         <Image source={plant} style={styles.logo} />
       </View>
-        
+
       <View>
         <TextInput
           styles={styles.input}
@@ -44,26 +37,30 @@ export const LoginScreen = ({ navigation }) => {
           style={styles.input}
           autoCapitalize="none"
         ></TextInput>
+        <TextInput
+          styles={styles.input}
+          placeholder="Confirm Password"
+          style={styles.input}
+          autoCapitalize="none"
+        ></TextInput>
         <Button
           style={styles.button}
-          //onPress={onPressHome}
+          onPress={onPressHandler}
           title="LogIn"
           color="#841584"
-          accessibilityLabel="Login"
+          accessibilityLabel="Registration"
         />
-
-        <Button
-          style={styles.button}
-          title="Go to Registration"
-          color="#841584"
-          onPress={onPressHandler}
-        ></Button>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  bacground: {
+    width: WIDTH,
+    height: HEIGHT,
+    backgroundColor: "green",
+  },
   input: {
     width: WIDTH - 55,
     height: 45,
@@ -96,18 +93,6 @@ const styles = StyleSheet.create({
 
   logoContainer: {
     alignItems: "center",
-  },
-
-  bacground: {
-    width: WIDTH,
-    height: HEIGHT,
-    backgroundColor: "green",
-  },
-  linearGradient: {
-    flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5
   },
   logo: {
     width: 120,
