@@ -8,7 +8,9 @@ import {
   Dimensions,
   Image,
 } from "react-native";
-import plant from "./../../assets/plant.png";
+
+import { LinearGradient } from "expo-linear-gradient";
+import logo from "./../../assets/logo.png";
 
 const { width: WIDTH } = Dimensions.get("window");
 const { height: HEIGHT } = Dimensions.get("window");
@@ -19,39 +21,41 @@ export const RegistrationScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.bacground}>
-      <View style={styles.logoContainer}>
-        <Image source={plant} style={styles.logo} />
-      </View>
+    <LinearGradient colors={["#2C7853", "#19B859"]} start={[1, 0]} end={[0, 1]}>
+      <View style={styles.bacground}>
+        <View style={styles.logoContainer}>
+          <Image source={logo} style={styles.logo} />
+        </View>
 
-      <View>
-        <TextInput
-          styles={styles.input}
-          placeholder="Email"
-          style={styles.input}
-          autoCapitalize="none"
-        ></TextInput>
-        <TextInput
-          styles={styles.input}
-          placeholder="Password"
-          style={styles.input}
-          autoCapitalize="none"
-        ></TextInput>
-        <TextInput
-          styles={styles.input}
-          placeholder="Confirm Password"
-          style={styles.input}
-          autoCapitalize="none"
-        ></TextInput>
-        <Button
-          style={styles.button}
-          onPress={onPressHandler}
-          title="LogIn"
-          color="#841584"
-          accessibilityLabel="Registration"
-        />
+        <View>
+          <TextInput
+            styles={styles.input}
+            placeholder="Email"
+            style={styles.input}
+            autoCapitalize="none"
+          ></TextInput>
+          <TextInput
+            styles={styles.input}
+            placeholder="Password"
+            style={styles.input}
+            autoCapitalize="none"
+          ></TextInput>
+          <TextInput
+            styles={styles.input}
+            placeholder="Confirm Password"
+            style={styles.input}
+            autoCapitalize="none"
+          ></TextInput>
+          <Button
+            style={styles.button}
+            onPress={onPressHandler}
+            title="Registration"
+            color="#841584"
+            accessibilityLabel="Registration"
+          />
+        </View>
       </View>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -59,7 +63,7 @@ const styles = StyleSheet.create({
   bacground: {
     width: WIDTH,
     height: HEIGHT,
-    backgroundColor: "green",
+    backgroundColor: "transparent",
   },
   input: {
     width: WIDTH - 55,
@@ -95,7 +99,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    width: 120,
-    height: 120,
+    borderRadius: 180,
+    width: 320,
+    height: 320,
   },
 });

@@ -10,13 +10,9 @@ import { AdvertisementsScreen } from './src/Screens/AdvertisementsScreen';
 import { MyPlantsScreen } from './src/Screens/MyPlantsScreem';
 import { AccountScreen } from './src/Screens/AccountScreen';
 import { HomeScreen } from './src/Screens/HomeScreen';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
-
-
-
-
-const Stack = createStackNavigator()
 const Drawer = createDrawerNavigator()
 
 
@@ -25,23 +21,21 @@ export default function App() {
   return (
 
 
-    
     <NavigationContainer>
-      
-      <Drawer.Navigator
+     
+      <Drawer.Navigator  screenOptions={{headerTransparent: true} }
       initialRouteName='Login'
+      drawerStyle={{
+        backgroundColor:"#19B859",
+        
+        borderTopRightRadius:30}}
       component={LoginScreen}
       options={{title: 'Login'}}>
-        
-        <Drawer.Screen
-        name='Login'
-        component={LoginScreen}
-        options={{title: 'Login'}}>
-        </Drawer.Screen>
-        <Drawer.Screen
-        name='Registration'
-        component={RegistrationScreen}>
-          
+       
+       <Drawer.Screen
+        name='HomeScreen'
+        component={HomeScreen}
+        options={{title: 'HomeScreen'}}>
         </Drawer.Screen>
         <Drawer.Screen
         name='AdvertisementsScreen'
@@ -53,33 +47,30 @@ export default function App() {
         component={MyPlantsScreen}
         options={{title: 'MyPlantsScreen'}}>
         </Drawer.Screen>
-        <Drawer.Screen
-        name='HomeScreen'
-        component={HomeScreen}
-        options={{title: 'HomeScreen'}}>
-        </Drawer.Screen>
+        
         <Drawer.Screen
         name='AccountScreen'
         component={AccountScreen}
         options={{title: 'AccountScreen'}}>
         </Drawer.Screen>
+        <Drawer.Screen
+        name='Login'
+        component={LoginScreen}
+        options={{title: 'Login'}}>
+        </Drawer.Screen>
+        <Drawer.Screen
+        name='Registration'
+        component={RegistrationScreen}>
+          
+        </Drawer.Screen>
       </Drawer.Navigator>
-
-    {/* <View style={styles.container}>
-       <Navbar title="NAVBAR">
-       <AddItem></AddItem>
-      <Text  ></Text>
-      <StatusBar style="auto" />
-      </Navbar>
-     <LoginScreen></LoginScreen>
+ 
       
-    </View> */}
+     
     </NavigationContainer>
+   
+    
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    
-  },
-});
+

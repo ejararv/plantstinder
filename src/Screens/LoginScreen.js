@@ -1,23 +1,32 @@
+import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import {
   TextInput,
   StyleSheet,
   View,
+  Text,
   Button,
   Dimensions,
   Image,
 } from "react-native";
-import { Drawer } from "../Drawer";
-import LinearGradient from 'react-native-linear-gradient';
-import plant from "./../../assets/plant.png";
+import logo from "./../../assets/logo.png";
+import { useFonts } from "expo-font";
 
 
 const { width: WIDTH } = Dimensions.get("window");
 const { height: HEIGHT } = Dimensions.get("window");
 
+
+
 export const LoginScreen = ({ navigation }) => {
 
-    
+  const [loaded] = useFonts({
+    Montserrat: require("./../../assets/fonts/Montserrat-Light.ttf"),
+  });
+  if (!loaded) {
+    return null;
+  }
+
   const onPressHandler = () => {
     navigation.navigate("Registration");
   };
@@ -25,41 +34,45 @@ export const LoginScreen = ({ navigation }) => {
     navigation.navigate("HomeScreen");
   };
   return (
-    <View style={styles.bacground}>
-       
-      <View style={styles.logoContainer}>
-        <Image source={plant} style={styles.logo} />
-      </View>
-        
-      <View>
-        <TextInput
-          styles={styles.input}
-          placeholder="Email"
-          style={styles.input}
-          autoCapitalize="none"
-        ></TextInput>
-        <TextInput
-          styles={styles.input}
-          placeholder="Password"
-          style={styles.input}
-          autoCapitalize="none"
-        ></TextInput>
-        <Button
-          style={styles.button}
-          //onPress={onPressHome}
-          title="LogIn"
-          color="#841584"
-          accessibilityLabel="Login"
-        />
+    <LinearGradient colors={["#2C7853", "#19B859"]} start={[1, 0]} end={[0, 1]}>
+      <View style={styles.bacground}>
+        <View style={styles.logoContainer}>
+          <Image source={logo} style={styles.logo} />
+        </View>
+        <View>
+          <Text style={styles.text}>GreenMate</Text>
+        </View>
 
-        <Button
-          style={styles.button}
-          title="Go to Registration"
-          color="#841584"
-          onPress={onPressHandler}
-        ></Button>
+        <View>
+          <TextInput
+            styles={styles.input}
+            placeholder="Email"
+            style={styles.input}
+            autoCapitalize="none"
+          ></TextInput>
+          <TextInput
+            styles={styles.input}
+            placeholder="Password"
+            style={styles.input}
+            autoCapitalize="none"
+          ></TextInput>
+          <Button
+            style={styles.button}
+            onPress={onPressHome}
+            title="LogIn"
+            color="#FFD200"
+            accessibilityLabel="Login"
+          />
+
+          <Button
+            style={styles.button}
+            title="Go to Registration"
+            color="#FFD200"
+            onPress={onPressHandler}
+          ></Button>
+        </View>
       </View>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -89,6 +102,7 @@ const styles = StyleSheet.create({
     height: 45,
     borderRadius: 25,
     padding: 10,
+
     fontSize: 16,
     paddingLeft: 45,
     marginHorizontal: 25,
@@ -101,16 +115,26 @@ const styles = StyleSheet.create({
   bacground: {
     width: WIDTH,
     height: HEIGHT,
-    backgroundColor: "green",
+    backgroundColor: "transparent",
   },
   linearGradient: {
     flex: 1,
     paddingLeft: 15,
     paddingRight: 15,
-    borderRadius: 5
+    borderRadius: 5,
   },
   logo: {
-    width: 120,
-    height: 120,
+    marginTop: 70,
+    width: 150,
+    height: 160,
+  },
+  text: {
+    width: 533,
+    fontFamily:"Montserrat",
+    fontSize:50,
+    alignItems: "center",
+    left: 55,
+    
+    color: "#FFFFFF",
   },
 });
