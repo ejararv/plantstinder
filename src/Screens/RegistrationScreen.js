@@ -26,6 +26,9 @@ export const RegistrationScreen = ({ navigation }) => {
         <View style={styles.logoContainer}>
           <Image source={logo} style={styles.logo} />
         </View>
+        <View>
+          <Text style={styles.text}>GreenMate</Text>
+        </View>
 
         <View>
           <TextInput
@@ -50,7 +53,7 @@ export const RegistrationScreen = ({ navigation }) => {
             style={styles.button}
             onPress={onPressHandler}
             title="Registration"
-            color="#841584"
+            color="#FFD200"
             accessibilityLabel="Registration"
           />
         </View>
@@ -87,20 +90,30 @@ const styles = StyleSheet.create({
   },
   button: {
     width: WIDTH - 55,
-    height: 45,
+    height: HEIGHT - 45,
     borderRadius: 25,
     padding: 10,
     fontSize: 16,
     paddingLeft: 45,
     marginHorizontal: 25,
+    marginEnd: 33
   },
 
   logoContainer: {
     alignItems: "center",
   },
   logo: {
-    borderRadius: 180,
-    width: 320,
-    height: 320,
+    marginTop: 70,
+    width: 150,
+    height: 160,
+  },
+  text: {
+    width: 533,
+    fontFamily:"Montserrat",
+    fontSize:50,
+    alignItems: "center",
+    left: 55,
+    
+    color: "#FFFFFF",
   },
 });

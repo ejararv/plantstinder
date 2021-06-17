@@ -30,8 +30,8 @@ export const LoginScreen = ({ navigation }) => {
   const onPressHandler = () => {
     navigation.navigate("Registration");
   };
-  const onPressHome = () => {
-    navigation.navigate("HomeScreen");
+  const onPressMyPlants = () => {
+    navigation.navigate("MyPlantsScreen");
   };
   return (
     <LinearGradient colors={["#2C7853", "#19B859"]} start={[1, 0]} end={[0, 1]}>
@@ -58,7 +58,7 @@ export const LoginScreen = ({ navigation }) => {
           ></TextInput>
           <Button
             style={styles.button}
-            onPress={onPressHome}
+            onPress={onPressMyPlants}
             title="LogIn"
             color="#FFD200"
             accessibilityLabel="Login"
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   input: {
     width: WIDTH - 55,
     height: 45,
-    borderRadius: 25,
+    borderRadius: 10,
     padding: 10,
     fontSize: 16,
     paddingLeft: 45,
@@ -98,11 +98,12 @@ const styles = StyleSheet.create({
     marginTop: "60%",
   },
   button: {
-    width: WIDTH - 55,
+    width: 45,
     height: 45,
-    borderRadius: 25,
+    borderRadius: 45,
+    marginHorizontal: 33,
+    alignItems: 'center',
     padding: 10,
-
     fontSize: 16,
     paddingLeft: 45,
     marginHorizontal: 25,

@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { RegistrationScreen } from './src/Screens/RegistrationScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { AdvertisementsScreen } from './src/Screens/AdvertisementsScreen';
-import { MyPlantsScreen } from './src/Screens/MyPlantsScreem';
+import { MyPlantsScreen } from './src/Screens/MyPlantsScreen';
 import { AccountScreen } from './src/Screens/AccountScreen';
 import { HomeScreen } from './src/Screens/HomeScreen';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -33,9 +33,9 @@ export default function App() {
       options={{title: 'Login'}}>
        
        <Drawer.Screen
-        name='HomeScreen'
-        component={HomeScreen}
-        options={{title: 'HomeScreen'}}>
+        name='MyPlantsScreen'
+        component={MyPlantsScreen}
+        options={{title: 'MyPlantsScreen'}}>
         </Drawer.Screen>
         <Drawer.Screen
         name='AdvertisementsScreen'
@@ -43,9 +43,9 @@ export default function App() {
         options={{title: 'AdvertisementsScreen'}}>
         </Drawer.Screen>
         <Drawer.Screen
-        name='MyPlantsScreen'
-        component={MyPlantsScreen}
-        options={{title: 'MyPlantsScreen'}}>
+        name='HomeScreen'
+        component={HomeScreen}
+        options={{title: 'HomeScreen'}}>
         </Drawer.Screen>
         
         <Drawer.Screen
