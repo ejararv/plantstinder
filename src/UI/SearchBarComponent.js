@@ -1,9 +1,9 @@
-import React from 'react'
-import { SearchBar } from 'react-native-elements';
+import React from "react";
+import { SearchBar } from "react-native-elements";
 
 export default class SearchBarComponent extends React.Component {
   state = {
-    search: '',
+    search: "",
   };
 
   updateSearch = (search) => {
@@ -18,7 +18,6 @@ export default class SearchBarComponent extends React.Component {
         placeholder="Type Here..."
         onChangeText={this.updateSearch}
         value={search}
-        
       />
     );
   }

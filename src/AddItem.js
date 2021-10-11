@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  TextInput,
-  Button,
-  TextInputComponent,
-} from "react-native";
+import { View, StyleSheet, TextInput, Button } from "react-native";
 
 export const AddItem = (props) => {
   return (

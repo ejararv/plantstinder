@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingLeft: 45,
     marginHorizontal: 25,
-    marginEnd: 33
+    marginEnd: 33,
   },
 
   logoContainer: {
@@ -109,11 +109,11 @@ const styles = StyleSheet.create({
   },
   text: {
     width: 533,
-    fontFamily:"Montserrat",
-    fontSize:50,
+    fontFamily: "Montserrat",
+    fontSize: 50,
     alignItems: "center",
     left: 55,
-    
+
     color: "#FFFFFF",
   },
 });

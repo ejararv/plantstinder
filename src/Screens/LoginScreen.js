@@ -1,24 +1,25 @@
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
+import React, { useState } from "react";
 import {
   TextInput,
   StyleSheet,
   View,
   Text,
-  Button,
   Dimensions,
   Image,
 } from "react-native";
 import logo from "./../../assets/logo.png";
 import { useFonts } from "expo-font";
-
+import MyButton from "../UI/MyButton";
+import UserInput from "../UI/UserInput";
 
 const { width: WIDTH } = Dimensions.get("window");
 const { height: HEIGHT } = Dimensions.get("window");
 
-
-
 export const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+
+  const [password, setPassword] = useState("");
 
   const [loaded] = useFonts({
     Montserrat: require("./../../assets/fonts/Montserrat-Light.ttf"),
@@ -29,6 +30,10 @@ export const LoginScreen = ({ navigation }) => {
 
   const onPressHandler = () => {
     navigation.navigate("Registration");
+  };
+
+  const showLoginData = () => {
+    return console.log(email, password);
   };
   const onPressMyPlants = () => {
     navigation.navigate("MyPlantsScreen");
@@ -43,33 +48,21 @@ export const LoginScreen = ({ navigation }) => {
           <Text style={styles.text}>GreenMate</Text>
         </View>
 
-        <View>
-          <TextInput
-            styles={styles.input}
+        <View style={styles.container}>
+          <UserInput
             placeholder="Email"
-            style={styles.input}
+            onChange={(e) => setEmail(e.nativeEvent.text)}
             autoCapitalize="none"
-          ></TextInput>
-          <TextInput
-            styles={styles.input}
+          />
+          <UserInput
             placeholder="Password"
-            style={styles.input}
+            onChange={(e) => setPassword(e.nativeEvent.text)}
             autoCapitalize="none"
-          ></TextInput>
-          <Button
-            style={styles.button}
-            onPress={onPressMyPlants}
-            title="LogIn"
-            color="#FFD200"
-            accessibilityLabel="Login"
           />
 
-          <Button
-            style={styles.button}
-            title="Go to Registration"
-            color="#FFD200"
-            onPress={onPressHandler}
-          ></Button>
+          <MyButton text="LogIn" onPress={onPressMyPlants} />
+          <MyButton text="Go to Registration" onPress={onPressHandler} />
+          <MyButton text="LogIn data" onPress={showLoginData} />
         </View>
       </View>
     </LinearGradient>
@@ -77,16 +70,11 @@ export const LoginScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  input: {
-    width: WIDTH - 55,
-    height: 45,
-    borderRadius: 10,
-    padding: 10,
-    fontSize: 16,
-    paddingLeft: 45,
-    backgroundColor: "rgba(0, 0, 0, 0.35)",
-    color: "rgba(255, 255, 255, 0.7)",
-    marginHorizontal: 25,
+  container: {
+    display: "flex",
+    justifyContent: "space-around",
+    padding: 20,
+    alignItems: "center",
   },
   footer: {
     flex: 1,
@@ -96,17 +84,6 @@ const styles = StyleSheet.create({
     paddingVertical: 50,
     paddingHorizontal: 30,
     marginTop: "60%",
-  },
-  button: {
-    width: 45,
-    height: 45,
-    borderRadius: 45,
-    marginHorizontal: 33,
-    alignItems: 'center',
-    padding: 10,
-    fontSize: 16,
-    paddingLeft: 45,
-    marginHorizontal: 25,
   },
 
   logoContainer: {
@@ -131,11 +108,11 @@ const styles = StyleSheet.create({
   },
   text: {
     width: 533,
-    fontFamily:"Montserrat",
-    fontSize:50,
+    fontFamily: "Montserrat",
+    fontSize: 50,
     alignItems: "center",
     left: 55,
-    
+
     color: "#FFFFFF",
   },
 });

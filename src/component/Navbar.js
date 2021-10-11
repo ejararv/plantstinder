@@ -1,9 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Icon, Header, Left } from "native-base";
-import { NavigationContainer } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import { AntDesign } from "@expo/vector-icons";
 
 export const Navbar = ({ props, title }) => {
   return (
@@ -14,7 +11,7 @@ export const Navbar = ({ props, title }) => {
           <View>
             <Text style={styles.title}>{title}</Text>
           </View>
-        </View>  
+        </View>
       </View>
     </LinearGradient>
   );
@@ -26,7 +23,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "transparent",
-    marginTop: 30
+    marginTop: 30,
   },
   title: {
     fontSize: 35,

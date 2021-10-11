@@ -9,15 +9,13 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Footer } from "../Footer";
-import { Navbar } from "../Navbar";
+import { Navbar } from "../component/Navbar";
 import { AntDesign } from "@expo/vector-icons";
 import bg from "./../../assets/bg.jpg";
 import logo from "./../../assets/logo.png";
 import kaktus from "./../../assets/kaktus.jpg";
 import aloe from "./../../assets/aloe.jpg";
 import plant from "./../../assets/plant.png";
-import SearchBarComponent from "./../SearchBarComponent";
-import SearchBar from "react-native-elements/dist/searchbar/SearchBar-ios";
 
 const { width: WIDTH } = Dimensions.get("window");
 const { height: HEIGHT } = Dimensions.get("window");
@@ -64,9 +62,7 @@ export const MyPlantsScreen = ({ navigation }) => {
         ></Navbar>
       </View>
 
-      <View>
-        <SearchBar></SearchBar>
-      </View>
+      <View></View>
 
       <View style={styles.logoContainer}>
         <View
@@ -82,7 +78,7 @@ export const MyPlantsScreen = ({ navigation }) => {
           <View
             style={{ flexDirection: "row", justifyContent: "space-between" }}
           >
-            <Text style={styles.text}> KAKTUS  JAN</Text>
+            <Text style={styles.text}> KAKTUS JAN</Text>
           </View>
         </View>
 
@@ -102,7 +98,6 @@ export const MyPlantsScreen = ({ navigation }) => {
             <Text style={styles.text}> ALOE VERA</Text>
           </View>
         </View>
-       
 
         {/* <FlatList 
         data={data}
